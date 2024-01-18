@@ -3,6 +3,7 @@ name: Deploy to Firebase Functions
   push:
     branches:
       - main
+      - firebase-token-auth
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
