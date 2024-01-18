@@ -12,4 +12,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install -g firebase-tools 
-      - run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --only functions --debug
+      - uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+      - run: firebase deploy --only functions --debug
